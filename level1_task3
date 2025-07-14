@@ -1,0 +1,26 @@
+def is_valid_email(email):
+    # Check if there is exactly one '@' symbol
+    if email.count('@') != 1:
+        return False
+    
+    # Split the email into local part and domain part
+    local_part, domain_part = email.split('@')
+    
+    # Both parts should be non-empty
+    if not local_part or not domain_part:
+        return False
+    
+    # Domain part should have at least one dot '.'
+    if '.' not in domain_part:
+        return False
+    
+    # Domain part should not start or end with '.'
+    if domain_part.startswith('.') or domain_part.endswith('.'):
+        return False
+    
+    return True
+
+# Example usage:
+print(is_valid_email("test@example.com"))  # Output: True
+print(is_valid_email("invalidemail.com"))  # Output: False
+print(is_valid_email("name@domain"))       # Output: False
