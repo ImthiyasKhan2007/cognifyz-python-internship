@@ -1,0 +1,34 @@
+# Basic Calculator Program
+
+def calculator():
+    # Prompt the user for inputs
+    num1 = float(input("Enter first number: "))
+    operator = input("Enter operator (+, -, *, /, %, ^): ").strip()
+    num2 = float(input("Enter second number: "))
+
+    # Perform calculation based on operator
+    if operator == '+':
+        result = num1 + num2
+    elif operator == '-':
+        result = num1 - num2
+    elif operator == '*':
+        result = num1 * num2
+    elif operator == '/':
+        if num2 != 0:
+            result = num1 / num2
+        else:
+            return "Error: Division by zero"
+    elif operator == '%':
+        if num2 != 0:
+            result = num1 % num2
+        else:
+            return "Error: Modulo by zero"
+    elif operator == '^':
+        result = num1 ** num2
+    else:
+        return "Invalid operator"
+
+    return f"Result: {result}"
+
+# Run the calculator
+print(calculator())
