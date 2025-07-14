@@ -1,0 +1,25 @@
+import random
+
+def number_guesser():
+    # Ask user for the range
+    start = int(input("Enter the start of the range: "))
+    end = int(input("Enter the end of the range: "))
+    
+    # Generate a random number within the range
+    number_to_guess = random.randint(start, end)
+
+    print(f"I have selected a number between {start} and {end}. Try to guess it!")
+
+    while True:
+        guess = int(input("Enter your guess: "))
+        
+        if guess < number_to_guess:
+            print("Too low! Try again.")
+        elif guess > number_to_guess:
+            print("Too high! Try again.")
+        else:
+            print(f"Congratulations! You guessed the correct number: {number_to_guess}")
+            break
+
+# Run the game
+number_guesser()
