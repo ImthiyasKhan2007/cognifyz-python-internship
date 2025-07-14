@@ -1,0 +1,23 @@
+def word_count(filename):
+    counts = {}
+
+    # Open and read the file
+    with open(filename, 'r') as file:
+        for line in file:
+            # Remove punctuation and convert to lowercase
+            words = line.strip().lower().split()
+            
+            for word in words:
+                # Remove punctuation from each word
+                word = ''.join(char for char in word if char.isalnum())
+                
+                if word:
+                    counts[word] = counts.get(word, 0) + 1
+
+    # Display the results in alphabetical order
+    for word in sorted(counts):
+        print(f"{word}: {counts[word]}")
+
+# Example usage:
+filename = input("Enter the filename: ")
+word_count(filename)
